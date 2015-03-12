@@ -1,0 +1,50 @@
+@font-face{
+
+        font-family: "dustwest";
+        src: url(/files/files/dustwest.ttf) format("truetype");
+    }
+@font-face{
+
+        font-family: "bat";
+        src: url(/files/files/bat.ttf) format("truetype");
+    }    
+		
+		header{
+			position: relative;
+			font-family: dustwest;
+			font-size: 900%;
+			text-decoration: underline;
+			background-color: #CED8F6;
+		}
+		
+
+		#autoridades{
+			
+			position: relative;
+			font-family: bat;
+			font-size: 700%;
+			color:red;
+
+			
+			}		
+		#formaciones{
+			position: relative;
+			font-family: bat;
+			font-size: 700%;
+			float:left;
+			color:green;
+		}	
+		.data{
+			position: relative;
+			font-family: dustwest;
+			font-size: 250%;
+			color:grey;
+
+		}
+		.value{
+			position: relative;
+			font-family: bat;
+			font-size: 340%;
+			color:red;
+		}
+		
