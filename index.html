@@ -5,20 +5,22 @@
 	<title>>>NIKOV FC</title>
 	<!-- Latest compiled and minified CSS -->
 	<meta http-equiv ="nikov , nikov fc">
+	<meta name = "viewport" content = "width=device-with , initial-scale =1.0">
+	<meta http-equiv ="Content-Type" content ="text/html";>
+
 	<script src ="https://code.jquery.com/jquery.js"></script>
-    <meta http-equiv ="Content-Type" content ="text/html";>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <meta name = "viewport" content = "width=device-with , initial-scale =1.0"> 
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   
+    <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+ 
+    <!-- importando angular js -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
     <script type="text/javascript" src = "/files/files/bootbox.min.js"></script>
     <link rel="stylesheet" href="/files/files/style.css">
 
@@ -40,7 +42,8 @@
 			<br><span class= "data">Presindente:</span><br>
 			<br><span class= "value">Mario NC</span><br>
 			<br><span class ="data">Tesorero:</span><br>
-			<br><span class="value">Julius Sotelo</span></center>
+			<br><span class="value">Julius Sotelo</span><br><br>
+			<button type="button" class = "btn btn-primary btn-lg" onClick="w()">Info</button></center>
 			 <br><br><br>
 		</div>
 		<div class="col-md-6" >
@@ -98,10 +101,53 @@
 	</div>
 
 	<div class="row" id="row2">
-		<center><img src="/files/files/nikov.jpg" alt=""></center>
+		
+			
+			<center><span id ="header2">Comentarios</span></center>
+
+			<div class="row">
+				<div class ="col-md-2"></div>
+				<div id ="chatContent" class ="col-md-8">
+                         <center>    <div class ="panel panel-info"><div class ="panel-heading">
+                         	Deja tu comentario aca 
+                         </div>
+
+                             <div id ="chat" class ="panel-body"></div>
+                                      </div>
+                          </center>            
+			<input id ="nombre" type="text" class ="form-control" placeholder="Tu Nombre...."></input>
+
+            	<form id ="sendMessenge" class ="input-group" style ="text-align:center; margin:0 auto;">
+            	
+
+
+					<span class ="input-group-btn">
+					<input id ="messenge" class = "form-control input-lg" type ="text"></input>
+
+					<button class ="btn btn-lg btn-primary" type ="submit">
+
+
+
+					Send
+					</button>
+
+
+					</span>
+
+
+					</form>
+            </div>
+
+			</div>
+
 		
 	</div>
 
 
 </body>
+<script>
+	function w(){
+		bootbox.alert("NIKOV FC ! \n\t El nikov es un equipo de futbol y un grupo de amigos tucumano de trascendencia , todo el tiempo buscamos nuevos rivales , torneos y competencias en las cuales medirnos , si tenes huevos para jugar con nosotros entonces hace click en 'haceptar reto' y envianos un mail con tus datos , jugamos cualquier tipo de partido , en cualquier tipo de condiciones.");
+	}
+</script>
 </html>
