@@ -99,35 +99,42 @@
 
 	</div>
 	</div>
+	<div class="container2">
 
 	<div class="row" id="row2">
 		
 			
 			<center><span id ="header2">Comentarios</span></center>
-
-			<div class="row">
-				<div class ="col-md-2"></div>
+		
+			<div class="row" style ="height: 70%;">
+				<div id="content" class ="col-md-2"></div>
 				<div id ="chatContent" class ="col-md-8">
-                         <center>    <div class ="panel panel-info"><div class ="panel-heading">
-                         	Deja tu comentario aca 
-                         </div>
+					
+                         <center>    <div class ="panel panel-info">
+			                         	<div class ="panel-heading">
+			                         	Charla Nikoveana
+			                         </div>
 
                              <div id ="chat" class ="panel-body"></div>
                                       </div>
-                          </center>            
-			<input id ="nombre" type="text" class ="form-control" placeholder="Tu Nombre...."></input>
+                          </center> 
+                      </div>
+                      </div>  
+                      <div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-2"></div>
+						<div class="col-md-4">	
+                              
+					<input id ="nombre" type="text" class ="form-control" placeholder="Tu Nombre.."></input>
 
-            	<form id ="sendMessenge" class ="input-group" style ="text-align:center; margin:0 auto;">
-            	
+		            	<form id ="sendMessenge" class ="input-group"  style ="text-align:center; margin:0 auto;">
+		            	
 
 
 					<span class ="input-group-btn">
-					<input id ="messenge" class = "form-control input-lg" type ="text"></input>
-
+					<input id ="messenge" class = "form-control input-lg" type ="text" placeholder="Tu comentario.."></input>
+					
 					<button class ="btn btn-lg btn-primary" type ="submit">
-
-
-
 					Send
 					</button>
 
@@ -136,18 +143,92 @@
 
 
 					</form>
-            </div>
+					</div>
+				   </div>
+					</div>
+            
 
-			</div>
+		
 
 		
 	</div>
-
+	
+	
 
 </body>
 <script>
 	function w(){
 		bootbox.alert("NIKOV FC ! \n\t El nikov es un equipo de futbol y un grupo de amigos tucumano de trascendencia , todo el tiempo buscamos nuevos rivales , torneos y competencias en las cuales medirnos , si tenes huevos para jugar con nosotros entonces hace click en 'haceptar reto' y envianos un mail con tus datos , jugamos cualquier tipo de partido , en cualquier tipo de condiciones.");
 	}
+
+function color(){ 
+   var hexadecimal = new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"); 
+   var color_aleatorio = "#"; 
+   var posarray=0;
+   
+   for (i=0;i<6;i++){ 
+      posarray = aleatorio(0,hexadecimal.length); 
+      color_aleatorio += hexadecimal[posarray]; 
+   } 
+   return color_aleatorio; 
+}
+
+// numero aleatorio: var n =Math.floor(Math.random() * (16-1+1)) + 1;
+
+
+function aleatorio(inferior,superior){ 
+   numPosibilidades = superior - inferior; 
+   aleat = Math.random() * numPosibilidades; 
+   aleat = Math.floor(aleat); 
+   return parseInt(inferior) + aleat; 
+}
+
 </script>
+<script>
+
+
+ jQuery(function($){
+
+
+ 	var socket = io.connect();
+ 	var $userName =$('#nombre');
+ 	var $messengeForm = $('#sendMessenge');
+ 	var $messenge = $('#messenge');
+ 	var $chat = $('#chat');
+    var c = color();
+    
+ 
+$messengeForm.submit(function(e){
+
+
+
+
+ e.preventDefault();
+ 
+ if($messenge.val()!=='') socket.emit('sendMessenge' , '<i style ="color:'+c+'">'+$userName.val()+'</i>: '+$messenge.val());
+ $messenge.val('');
+
+});
+
+
+socket.on('newMessenge', function(data){
+
+
+ 
+ 	$chat.append(' - '+data.msg + "<br>");
+	
+	
+	
+	
+});
+
+
+
+
+ });
+
+ 
+</script>
+<script src ="/socket.io/socket.io.js"></script>
+
 </html>
