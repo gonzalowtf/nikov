@@ -34,7 +34,7 @@ server.listen(port,function(err){
 
 io.sockets.on('connection' ,function(socket){
 	socket.on('sendMessenge', function(data){
-		io.sockets.emit('newMessenge',{msg:data});
+		io.sockets.emit('newMessenge',{usrr:data.usr,msgg:data.msg});
 		 
 	});
 });

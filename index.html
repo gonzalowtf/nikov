@@ -113,13 +113,13 @@
                          <center>    <div class ="panel panel-info">
 			                         	<div class ="panel-heading">
 			                         	Charla Nikoveana
-			                         </div>
+			                         </div></center> 
 
                              <div id ="chat" class ="panel-body"></div>
                                       </div>
-                          </center> 
+                          
                       </div>
-                      </div>  
+                        
                       <div class="row">
 						<div class="col-md-2"></div>
 						<div class="col-md-2"></div>
@@ -205,17 +205,32 @@ $messengeForm.submit(function(e){
 
  e.preventDefault();
  
- if($messenge.val()!=='') socket.emit('sendMessenge' , '<i style ="color:'+c+'">'+$userName.val()+'</i>: '+$messenge.val());
- $messenge.val('');
-
+ if($messenge.val()!=='')
+ { 
+ 	var mens = '<i style ="color:'+c+'">'+$userName.val()+'</i>: '+$messenge.val();
+ 	console.log(mens);
+ 	socket.emit('sendMessenge' ,{usr: $userName.val(),msg: mens});
+ 	$messenge.val('');
+       }
+ 	
 });
+
 
 
 socket.on('newMessenge', function(data){
 
 
+if(data.usrr==$userName.val()){
+
+	$chat.append(' - '+data.msgg + "<br>");
+
+}
+else{
+	$chat.append("<br><span class='visitor'> - "+data.msgg+"<br></span>");
+
+}
  
- 	$chat.append(' - '+data.msg + "<br>");
+ 	
 	
 	
 	
