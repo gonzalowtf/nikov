@@ -21,6 +21,7 @@
  
     <!-- importando angular js -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+
     <script type="text/javascript" src = "/files/files/bootbox.min.js"></script>
     <link rel="stylesheet" href="/files/files/style.css">
     <style>
@@ -218,7 +219,7 @@
 					<span class ="input-group-btn">
 					<input id ="messenge" class = "form-control input-lg" type ="text" placeholder="Tu comentario.."></input>
 					
-					<button class ="btn btn-lg btn-primary" type ="submit">
+					<button class ="btn btn-lg btn-primary" type ="submit" onClick = "register()">
 					Send
 					</button>
 
@@ -242,7 +243,7 @@
 </body>
 <script>
 	function w(){
-		bootbox.confirm("NIKOV FC ! \n\t El nikov es un equipo de futbol y un grupo de amigos tucumano de trascendencia , todo el tiempo buscamos nuevos rivales , torneos y competencias en las cuales medirnos , si tenes huevos para jugar con nosotros entonces hace click en 'haceptar reto' y envianos un mail con tus datos , jugamos cualquier tipo de partido , en cualquier tipo de condiciones.",function(result){
+		bootbox.confirm("NIKOV FC ! \n\t El nikov es un equipo de futbol y un grupo de amigos tucumano de trascendencia , todo el tiempo buscamos nuevos rivales , torneos y competencias en las cuales medirnos , si tenes huevos para jugar con nosotros entonces dale al ok y envianos un mail con tus datos , jugamos cualquier tipo de partido , en cualquier tipo de condiciones.",function(result){
 
 				if(result){
 
@@ -403,6 +404,8 @@ else{
 </script>
 <script src ="/socket.io/socket.io.js"></script>
 <script src ="https://code.jquery.com/jquery.js"></script>
+<script src = "/files/files/conv.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 
 
 </html>

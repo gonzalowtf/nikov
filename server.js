@@ -32,6 +32,16 @@ server.listen(port,function(err){
 	}
 });	
 
+
+mongoose.connect("mongodb://gonzalowtf:aereomodelismo12@ds061767.mongolab.com:61767/conv", function(err, res) {
+  if(err) {
+    console.log('ERROR: connecting to Database. ' + err);
+  } else {
+    console.log('Connected to Database');
+  }
+});
+
+
 io.sockets.on('connection' ,function(socket){
 	socket.on('sendMessenge', function(data){
 		io.sockets.emit('newMessenge',{usrr:data.usr,msgg:data.msg});
@@ -69,7 +79,7 @@ var nodemailer = require('nodemailer');     //sending mail
  
  app.get('/contact2',function(req,res){
         var mailOptions = {
-            from:'gustavojordan.com',
+            from:'nikovfc.com',
             to:'gonzalowtf@gmail.com',
             subject: 'Mensaje de contacto <gustavojordan.com>',
             html : '<b><strong>'+nombre+' , mail :'+mail+'</b></strong><br><br><br> escribió en tu pagina y quiere contactarse con vos:<br><br> <br><br><br><br> numero  :'+numero            
