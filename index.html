@@ -23,6 +23,18 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
     <script type="text/javascript" src = "/files/files/bootbox.min.js"></script>
     <link rel="stylesheet" href="/files/files/style.css">
+    <style>
+		
+		#chat{
+
+
+
+				position: relative;
+				width: 100%;
+				height: 900%;
+				overflow:auto ;
+			}
+    </style>
 
 </head>
 <body>
@@ -31,6 +43,78 @@
 		
 	</header>
 	<div class="container">
+		<div class="row">
+			<ul class="nav nav-tabs">
+ 		
+ 				<li class="active"><a href="#biografia" data-toggle="tab">Biografia</a></li>
+			    <li><a href="#plantel" data-toggle="tab">Plantel</a></li>
+			    <li><a href="#galeria" data-toggle="tab">Galeria</a></li>
+ 			
+			</ul>
+			<div class="tab-content">
+				<div class = "tab-pane fade in active" id="biografia">
+					<div class="jumbotron">
+			  <h1><span id = "head1">Nuestra Historia</span></h1>
+			  <p>
+			  	"It's The End Of The World As We Know It (And I Feel Fine)"
+
+					That's great, it starts with an earthquake
+					Birds and snakes, an aeroplane, and Lenny Bruce is not afraid
+
+					Eye of a hurricane, listen to yourself churn
+					World serves its own needs, don't misserve your own needs
+					Feed it up a knock, speed, grunt, no, strength
+					The ladder starts to clatter with a fear of height, down, height
+					Wire in a fire, represent the seven games
+					And a government for hire and a combat site
+					Left her, wasn't coming in a hurry with the Furies breathing down your neck</p>
+
+					<p>Team by team, reporters baffled, trumped, tethered, cropped
+					Look at that low plane, fine, then
+					Uh-oh, overflow, population, common group
+					But it'll do, save yourself, serve yourself
+					World serves its own needs, listen to your heart bleed
+					Tell me with the Rapture and the reverent in the right, right
+					You vitriolic, patriotic, slam fight, bright light
+					Feeling pretty psyched
+
+					It's the end of the world as we know it
+					It's the end of the world as we know it
+					It's the end of the world as we know it, and I feel fine
+
+					Six o'clock, TV hour, don't get caught in foreign tower
+					Slash and burn, return, listen to yourself churn
+					Lock him in uniform, book burning, bloodletting
+					Every motive escalate, automotive incinerate
+					Light a candle, light a motive, step down, step down
+					Watch your heel crush, crush, uh-oh
+					This means no fear, cavalier, renegade and steering clear
+					A tournament, a tournament, a tournament of lies
+					Offer me solutions, offer me alternatives, and I decline</p>
+
+					<p>It's the end of the world as we know it (I had some time alone)
+					It's the end of the world as we know it (I had some time alone)
+					It's the end of the world as we know it, and I feel fine (It's time I had some time alone)
+					I feel fine (I feel fine)
+
+					It's the end of the world as we know it (It's time I had some time alone)
+					It's the end of the world as we know it (It's time I had some time alone)
+					It's the end of the world as we know it, and I feel fine (It's time I had some time alone)</p>
+
+			  </p>
+			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                    </div>
+				</div>
+				<div class = "tab-pane fade" id="plantel">content 2</div>
+				<div class = "tab-pane fade" id="galeria">content 3</div>
+			
+			</div>
+		</div>
+		<br>
+		
+	</div>
+	<div class="container">
+		
 	<div class="row">
 		<div class="span12">
 
@@ -116,7 +200,7 @@
 			                         </div></center> 
 
                              <div id ="chat" class ="panel-body"></div>
-                                      </div>
+                                      </div><br>
                           
                       </div>
                         
@@ -158,7 +242,80 @@
 </body>
 <script>
 	function w(){
-		bootbox.alert("NIKOV FC ! \n\t El nikov es un equipo de futbol y un grupo de amigos tucumano de trascendencia , todo el tiempo buscamos nuevos rivales , torneos y competencias en las cuales medirnos , si tenes huevos para jugar con nosotros entonces hace click en 'haceptar reto' y envianos un mail con tus datos , jugamos cualquier tipo de partido , en cualquier tipo de condiciones.");
+		bootbox.confirm("NIKOV FC ! \n\t El nikov es un equipo de futbol y un grupo de amigos tucumano de trascendencia , todo el tiempo buscamos nuevos rivales , torneos y competencias en las cuales medirnos , si tenes huevos para jugar con nosotros entonces hace click en 'haceptar reto' y envianos un mail con tus datos , jugamos cualquier tipo de partido , en cualquier tipo de condiciones.",function(result){
+
+				if(result){
+
+					bootbox.prompt({
+					   title: "Nombre de tu Equipo",
+					   callback: function(res) {
+					    if (res === null) {
+					      bootbox.alert("no ingresaste nada");
+					    } else {
+					      nombre = res;
+
+					      bootbox.prompt({
+								  title: "Tu mail para que podamos contactarte",
+								   callback: function(res2) {
+								    if (res2 === null) {
+								      bootbox.alert("no ingresaste nada");
+								    } else {
+								      mail = res2;
+
+
+
+									      bootbox.prompt({
+												  title: "Tu numero : -- en formato whatsapp preferentemente",
+												   callback: function(res3) {
+												    if (res3 === null) {
+												      bootbox.alert("no ingresaste nada");
+												    } else {
+												      numero= res3;
+												      socket = io.connect();
+												      socket.emit("new-m",
+												      {
+												      name: nombre,
+							                          mail: mail,
+							                          number: numero,
+							                          vas: true
+
+							                      });
+
+												      location = "/contact2";
+												      bootbox.confirm("Mensaje enviado !",function(result){
+
+												      		if(result){
+												      			location= "localhost:<p>3000";
+												      		}
+												      		else{
+												      			bootbox.alert("mensaje no enviado");
+												      		}
+
+
+												      });
+
+
+
+												      
+												    }
+												  }
+									});	
+
+								      
+								    }
+								  }
+					});
+					    }
+					  }
+					});
+
+				}
+				else{
+					bootbox.alert("ok , te achicaste");
+				}
+
+
+		});
 	}
 
 function color(){ 
@@ -245,5 +402,7 @@ else{
  
 </script>
 <script src ="/socket.io/socket.io.js"></script>
+<script src ="https://code.jquery.com/jquery.js"></script>
+
 
 </html>

@@ -37,5 +37,57 @@ io.sockets.on('connection' ,function(socket){
 		io.sockets.emit('newMessenge',{usrr:data.usr,msgg:data.msg});
 		 
 	});
+	socket.on("new-m",function(data){
+
+		if(data.vas){
+
+			console.log("data recived");
+			nombre = data.name
+			mail = data.mail
+			numero = data.number
+		}
+		else{
+			console.log("not recived");
+		}
+
+
+	});
 });
 
+var nodemailer = require('nodemailer');     //sending mail
+ var transporter =nodemailer.createTransport({   //SMTP',
+        service : 'Gmail',
+        auth:{
+              user: 'gonzalowtf@gmail.com',
+              pass: 'aereomodelismo12'
+
+              }
+ }); 
+ //var v = '<strong>hi</strong>';
+ //v=v+'<img src= "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ2lHr02wc7xuBx9miriHXSKQLbIo7yzlJmZRxn6itXpFHOQOq-NWPsEFk">'  
+ 
+ 
+ app.get('/contact2',function(req,res){
+        var mailOptions = {
+            from:'gustavojordan.com',
+            to:'gonzalowtf@gmail.com',
+            subject: 'Mensaje de contacto <gustavojordan.com>',
+            html : '<b><strong>'+nombre+' , mail :'+mail+'</b></strong><br><br><br> escribió en tu pagina y quiere contactarse con vos:<br><br> <br><br><br><br> numero  :'+numero            
+
+            
+
+
+     }
+
+
+    transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Message sent: ' + info.response);
+    }
+      });
+
+//console.log(nombre);
+
+});
