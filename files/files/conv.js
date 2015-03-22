@@ -1,21 +1,21 @@
-function register(){
+function register(chatcontent){
 
-		var chat = document.getElementByid("chat").innerHTML
+		
+		console.log(chatcontent);
 		seedData= [{
-			 _id:{
-			 	$oid: "5508aa54e4b008505d2cdfad"
-			 },
-			 chat:chat
+
+			 id:1,
+			 chat:chatcontent
 		}];
 
-		console.log(seedData);
+		
 
 
 //https://api.mongolab.com/api/1/databases/cars/collections/users?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO
 
-		$.ajax( { url: "https://api.mongolab.com/api/1/databases/conv/collections/conv?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO",
-		  data: JSON.stringify( seedData ),
-		  type: "POST",
+		$.ajax( { url: "https://api.mongolab.com/api/1/databases/conv/collections/conv?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO&q={'key':1234}",
+		  data: JSON.stringify(  {"$set": {"chat":chatcontent} } ),
+		  type: "PUT",
 		  contentType: "application/json" } ).success(function(data){
 		  	if(data){
 		  		console.log("chat registered");

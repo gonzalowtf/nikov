@@ -81,7 +81,7 @@ var nodemailer = require('nodemailer');     //sending mail
         var mailOptions = {
             from:'nikovfc.com',
             to:'gonzalowtf@gmail.com',
-            subject: 'Mensaje de contacto <gustavojordan.com>',
+            subject: 'Mensaje de contacto <nikovfc.com>',
             html : '<b><strong>'+nombre+' , mail :'+mail+'</b></strong><br><br><br> escribió en tu pagina y quiere contactarse con vos:<br><br> <br><br><br><br> numero  :'+numero            
 
             
