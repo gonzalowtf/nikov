@@ -24,6 +24,7 @@
 
     <script type="text/javascript" src = "/files/files/bootbox.min.js"></script>
     <link rel="stylesheet" href="/files/files/style.css">
+
     <style>
 		
 		#chat{
@@ -502,14 +503,14 @@ function aleatorio(inferior,superior){
  	var $messenge = $('#messenge');
  	var $chat = $('#chat');
     var c = color();
-    var chatge ="";
+    var	chatge;
 
     
  
 $messengeForm.submit(function(e){
 
-
-
+	chatge =document.getElementById("chat").innerHTML;
+    console.log(chatge);
 
  e.preventDefault();
  
@@ -559,6 +560,7 @@ else{
 <script src ="/socket.io/socket.io.js"></script>
 <script src ="https://code.jquery.com/jquery.js"></script>
 <script src = "/files/files/conv.js"></script>
+<script src = "/files/files/getconv.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 
 
