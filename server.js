@@ -7,11 +7,7 @@ var express = require("express"),
 	io= require("socket.io").listen(server);
 
 
-app.configure(function () {
-  app.use(express.bodyParser()); 
-  app.use(express.methodOverride());
-  app.use(app.router); 
-});
+
 
 app.get('/', function(req, res) {
           //console.log(req.url);  actual direction
