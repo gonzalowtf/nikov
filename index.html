@@ -51,6 +51,8 @@
  				<li class="active"><a href="#biografia" data-toggle="tab">Biografia</a></li>
 			    <li><a href="#plantel" data-toggle="tab">Plantel</a></li>
 			    <li><a href="#galeria" data-toggle="tab">Galeria</a></li>
+			    <li><a href="#jugador" data-toggle="tab">Jugador x Jugador (ultimo partido)</a></li>
+			    <li><a href="#cantitos" data-toggle="tab">Cantitos</a></li>
  			
 			</ul>
 			<div class="tab-content">
@@ -313,6 +315,90 @@
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->
 				</div>
+
+	<div class = "tab-pane fade" id="jugador">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Ultimo partido: Amigos de maxi</div>
+		  <div class="panel-body">
+		    <p>
+		    	el partido se desarrollo de manera intensa desde el primer minuto ,la diferencia de gol fue minima pero hubo una ventaja por parte del equipo adversario que tenia al vendido maxi cisneros y aparte eran 6, muchas acciones buenas en ataque por partes de ivan y gonzalo , que tuvieron que bajar mucho ante la falta de un conductor de juego , a pesar de lo peleado que fue el partido el desgaste fisico se sintio al final y la distancia se agrando, se perdio maso menos por 5 goles de diferencia.
+		    </p>
+		  </div>
+
+  
+		  <table class="table">
+		    <thead>
+				<tr>	
+						<th>N°</th>
+						<th>Nombre</th>
+						<th>Puntuacion</th>
+						<th>descripcion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>--</td>
+					<td>David(jugador provisorio)</td>
+					<td>6</td>
+					<td>
+						buena precencia en defensa y en la iniciativa del equipo 
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Marito</td>
+					<td>7</td>
+					<td>
+						buena proyeccion por la banda izquierda , mucha llegada y defensa , tmb algunas conversiones
+					</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>Diego</td>
+					<td>8</td>
+					<td>atento en medio campo y defensa , subidas momentaneas y goles momentaneos
+						. muy buen desempeño</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>Ivan</td>
+					<td>7</td>
+					<td>movilizacion y peligro en el area rival , mucha conversion</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>Gonzalo</td>
+					<td>6</td>
+					<td>movilizacion y peligro en el area rival ,de los mejores goles del partido, sin embargo con llegadas a destiempo y faltas </td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>Maxi(jugo con el rival)</td>
+					<td>6</td>
+					<td>mucha gambeta , poca definicion , pero mucha llegada y posecion de pelota </td>
+				</tr>
+			</tbody>
+		  </table>
+		</div>
+	</div>
+
+	<div class = "tab-pane fade" id="cantitos">
+		<center><br><br>
+			<button type="button" class="btn btn-default" onClick="can1()">Señores yo soy del nikov</button>	<br><br>
+			<button type="button" class="btn btn-primary">Primary</button>
+						<br><br>			
+			<button type="button" class="btn btn-success">Success</button>
+						<br><br>			
+			<button type="button" class="btn btn-info">Info</button>
+						<br><br>			
+			<button type="button" class="btn btn-warning">Warning</button>
+						<br><br>
+			<button type="button" class="btn btn-danger">Danger</button>
+						<br><br>			
+
+		</center>		
+	</div>			
 			
 			</div>
 		</div>
@@ -611,6 +697,11 @@ else{
  });
 
  
+</script>
+<script>
+	function can1(){
+		bootbox.alert('"Señores no soy ningun gordero ! y a julio lo sigo a donde va,"')
+	}
 </script>
 <script src ="/socket.io/socket.io.js"></script>
 <script src ="https://code.jquery.com/jquery.js"></script>
