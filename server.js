@@ -55,6 +55,22 @@ mongoose.connect("mongodb://hutter22:cancer29@ds045604.mlab.com:45604/conv", fun
 io.sockets.on('connection' ,function(socket){
 	socket.on('sendMessenge', function(data){
 		io.sockets.emit('newMessenge',{usrr:data.usr,msgg:data.msg});
+		var url = 'mongodb://hutter22:cancer29@ds045604.mlab.com:45604/conv';
+        // Use connect method to connect to the Server 
+        MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        var collection = db.collection("chat")
+        collection.updateOne({"_id": {"$oid": "57d9bec9f36d28312f9470f2"}
+             ,  $set: { chat : "/n-"+data.usr +":"+data.msg }}, function(err, result) {
+         assert.equal(err, null);
+         assert.equal(1, result.result.n);
+        console.log("Updated chat");
+        
+  });
+        db.close();
+});
+
+		 
 		 
 	});
 	socket.on("new-m",function(data){
