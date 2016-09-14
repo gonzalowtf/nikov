@@ -3,7 +3,8 @@ var express = require("express"),
 	http = require("http"),
 	server = http.createServer(app),
 	port = process.env.PORT || 3000,
-	mongoose = require("mongoose"),
+	MongoClient = require("mongodb").MongoClient,
+	assert= require("assert"),
 	io= require("socket.io").listen(server);
 
 
@@ -28,16 +29,29 @@ server.listen(port,function(err){
 	}
 });	
 
+//mongodb://gonzalowtf:aereomodelismo12@ds045604.mlab.com:45604/conv
 
-mongoose.connect("mongodb://gonzalowtf:aereomodelismo12@ds061767.mongolab.com:61767/conv", function(err, res) {
+
+
+var url = 'mongodb://hutter22:cancer29@ds045604.mlab.com:45604/conv';
+// Use connect method to connect to the Server 
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
+ 
+  db.close();
+});
+
+/*
+mongoose.connect("mongodb://hutter22:cancer29@ds045604.mlab.com:45604/conv", function(err, res) {
   if(err) {
-    console.log('ERROR: connecting to Database. ' + err);
+    console.log('ERROR: connecting to Database. line 36' + err);
   } else {
     console.log('Connected to Database');
   }
 });
 
-
+*/
 io.sockets.on('connection' ,function(socket){
 	socket.on('sendMessenge', function(data){
 		io.sockets.emit('newMessenge',{usrr:data.usr,msgg:data.msg});
